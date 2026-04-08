@@ -1,0 +1,72 @@
+site_name: Awesome Pan-Cancer Phosphoproteomics
+site_url: https://liudengzhang.github.io/awesome-pan-cancer-phosphoproteomics/
+site_description: "Pan-cancer phosphoproteomics can identify thousands of sites — but without knowing which kinase, which pathway, and which drug, a catalog is not a map."
+repo_url: https://github.com/LiudengZhang/awesome-pan-cancer-phosphoproteomics
+repo_name: LiudengZhang/awesome-pan-cancer-phosphoproteomics
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - toc.integrate
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Concepts:
+    - Phosphorylation Essentials: concepts/phosphorylation-essentials.md
+    - The Kinase Problem: concepts/the-kinase-problem.md
+    - Phospho vs Genomics: concepts/phospho-vs-genomics.md
+  - Methods:
+    - Phosphosite Identification: methods/phosphosite-identification.md
+    - Kinase-Substrate Inference: methods/kinase-substrate-inference.md
+    - Pathway Reconstruction: methods/pathway-reconstruction.md
+    - Functional Scoring: methods/functional-scoring.md
+    - Pan-Cancer Integration: methods/pan-cancer-integration.md
+    - Therapeutic Response: methods/therapeutic-response.md
+  - Deep Reads:
+    - Overview: deep-reads/index.md
+  - Benchmarks:
+    - State of Benchmarking: benchmarks/state-of-benchmarking.md
+    - What to Measure: benchmarks/what-to-measure.md
+  - Datasets:
+    - Key Datasets: datasets/datasets.md
+  - Synthesis:
+    - The Annotation Bottleneck: synthesis/annotation-bottleneck.md
+    - From Sites to Circuits: synthesis/from-sites-to-circuits.md
+  - Timeline: timeline/index.md
+  - Explorer: explorer/index.md
+  - Glossary: glossary.md
