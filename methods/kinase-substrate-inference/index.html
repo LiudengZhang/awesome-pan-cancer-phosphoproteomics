@@ -1,0 +1,1801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pan-cancer phosphoproteomics can identify thousands of sites — but without knowing which kinase, which pathway, and which drug, a catalog is not a map.">
+      
+      
+      
+        <link rel="canonical" href="https://liudengzhang.github.io/awesome-pan-cancer-phosphoproteomics/methods/kinase-substrate-inference/">
+      
+      
+        <link rel="prev" href="../phosphosite-identification/">
+      
+      
+        <link rel="next" href="../pathway-reconstruction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Kinase-Substrate Inference - Awesome Pan-Cancer Phosphoproteomics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kinase-substrate-inference-methods" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Awesome Pan-Cancer Phosphoproteomics" class="md-header__button md-logo" aria-label="Awesome Pan-Cancer Phosphoproteomics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Awesome Pan-Cancer Phosphoproteomics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kinase-Substrate Inference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/LiudengZhang/awesome-pan-cancer-phosphoproteomics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LiudengZhang/awesome-pan-cancer-phosphoproteomics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/phosphorylation-essentials/" class="md-tabs__link">
+          
+  
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../phosphosite-identification/" class="md-tabs__link">
+          
+  
+  
+  Methods
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deep-reads/" class="md-tabs__link">
+          
+  
+  
+  Deep Reads
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../benchmarks/state-of-benchmarking/" class="md-tabs__link">
+          
+  
+  
+  Benchmarks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../datasets/datasets/" class="md-tabs__link">
+          
+  
+  
+  Datasets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../synthesis/annotation-bottleneck/" class="md-tabs__link">
+          
+  
+  
+  Synthesis
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../timeline/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Timeline
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../explorer/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Explorer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../glossary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Glossary
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Awesome Pan-Cancer Phosphoproteomics" class="md-nav__button md-logo" aria-label="Awesome Pan-Cancer Phosphoproteomics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Awesome Pan-Cancer Phosphoproteomics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LiudengZhang/awesome-pan-cancer-phosphoproteomics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LiudengZhang/awesome-pan-cancer-phosphoproteomics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/phosphorylation-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phosphorylation Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/the-kinase-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Kinase Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/phospho-vs-genomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phospho vs Genomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Methods
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phosphosite-identification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phosphosite Identification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kinase-Substrate Inference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kinase-Substrate Inference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motif-based-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motif-Based Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motif-Based Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kinaselibrary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KinaseLibrary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gps-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPS 6.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#igps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iGPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networkin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NetworKIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrichment-based-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enrichment-Based Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enrichment-Based Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kseaapp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KSEAapp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kea3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEA3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phosx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PhosX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INKA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-based-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network-Based Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network-Based Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rokai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RoKAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoupler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        decoupleR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kstar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KSTAR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarkin-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BenchmarKIN Findings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-kinase-substrate-inference-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Kinase-Substrate Inference Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pathway-reconstruction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pathway Reconstruction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functional-scoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functional Scoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pan-cancer-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pan-Cancer Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../therapeutic-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Therapeutic Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Reads
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Reads
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-reads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Benchmarks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../benchmarks/state-of-benchmarking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State of Benchmarking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../benchmarks/what-to-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What to Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datasets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datasets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthesis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Synthesis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../synthesis/annotation-bottleneck/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Annotation Bottleneck
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../synthesis/from-sites-to-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sites to Circuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../timeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="kinase-substrate-inference-methods">Kinase-Substrate Inference Methods<a class="headerlink" href="#kinase-substrate-inference-methods" title="Permanent link">&para;</a></h1>
+<p><strong>Kinase-substrate inference is the central computational challenge in phosphoproteomics: connecting observed phosphosite changes to the kinases responsible for those changes.</strong></p>
+<h2 id="motif-based-methods">Motif-Based Methods<a class="headerlink" href="#motif-based-methods" title="Permanent link">&para;</a></h2>
+<h3 id="kinaselibrary">KinaseLibrary<a class="headerlink" href="#kinaselibrary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1038/s41586-022-05575-3">Nature, 2023</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/TheKinaseLibrary/kinase-library">github.com/TheKinaseLibrary/kinase-library</a></li>
+<li><strong>Approach:</strong> Position-specific scoring matrices (PSSMs) derived from combinatorial peptide library profiling of 303 serine/threonine kinases. Scores substrates by sequence motif match.</li>
+<li><strong>Key innovation:</strong> Experimentally determined specificity profiles for the majority of the human Ser/Thr kinome, replacing curated databases with systematic biochemical measurement.</li>
+<li><strong>Strengths:</strong> Largest single-source kinase specificity resource; high-quality biochemical data; directly interpretable scores.</li>
+<li><strong>Limitations:</strong> Ser/Thr kinases only (no tyrosine kinases); motif alone cannot account for subcellular co-localization or scaffolding; in vitro preferences may not fully reflect in vivo specificity.</li>
+</ul>
+<h3 id="gps-60">GPS 6.0<a class="headerlink" href="#gps-60" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1093/nar/gkad383">Nucleic Acids Research, 2023</a></li>
+<li><strong>Code:</strong> <a href="https://gps.biocuckoo.cn/">gps.biocuckoo.cn</a></li>
+<li><strong>Approach:</strong> Group-based prediction system using sequence patterns around phosphosites to assign kinase families, trained on curated kinase-substrate pairs.</li>
+<li><strong>Key innovation:</strong> Hierarchical prediction at kinase group, family, and individual kinase levels; long-standing resource with extensive validation.</li>
+<li><strong>Strengths:</strong> Covers both Ser/Thr and Tyr kinases; regularly updated; includes kinase group-level predictions when individual kinase assignment is uncertain.</li>
+<li><strong>Limitations:</strong> Training data bias toward well-studied kinases; sequence-only features.</li>
+</ul>
+<h3 id="igps">iGPS<a class="headerlink" href="#igps" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1074/mcp.M111.012625">Nucleic Acids Research, 2015</a></li>
+<li><strong>Code:</strong> <a href="http://igps.biocuckoo.org/">igps.biocuckoo.org</a></li>
+<li><strong>Approach:</strong> Integrates GPS motif predictions with protein-protein interaction networks to filter kinase-substrate pairs by physical interaction evidence.</li>
+<li><strong>Key innovation:</strong> Combining sequence specificity with network context to reduce false positives from motif-only approaches.</li>
+<li><strong>Strengths:</strong> More biologically realistic than motif-only methods; leverages interaction databases.</li>
+<li><strong>Limitations:</strong> Dependent on PPI network completeness; web server availability can be inconsistent.</li>
+</ul>
+<h3 id="networkin">NetworKIN<a class="headerlink" href="#networkin" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1016/j.cell.2007.05.052">Cell, 2007</a></li>
+<li><strong>Code:</strong> <a href="https://networkin.info/">networkin.info</a></li>
+<li><strong>Approach:</strong> Combines linear motif scoring with network proximity in protein association networks (STRING) to predict kinase-substrate relationships.</li>
+<li><strong>Key innovation:</strong> Pioneered the integration of contextual network information with sequence motifs for kinase prediction.</li>
+<li><strong>Strengths:</strong> Foundational method; conceptually influential; uses network context to improve specificity.</li>
+<li><strong>Limitations:</strong> Aging resource with limited recent updates; network data can introduce biases from well-studied pathways.</li>
+</ul>
+<h2 id="enrichment-based-methods">Enrichment-Based Methods<a class="headerlink" href="#enrichment-based-methods" title="Permanent link">&para;</a></h2>
+<h3 id="kseaapp">KSEAapp<a class="headerlink" href="#kseaapp" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1093/bioinformatics/btx415">Bioinformatics, 2017</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/casecpb/KSEAapp">github.com/casecpb/KSEAapp</a></li>
+<li><strong>Approach:</strong> Kinase-substrate enrichment analysis. Tests whether substrates of a given kinase show coordinated changes in phosphorylation using a z-score statistic.</li>
+<li><strong>Key innovation:</strong> Simple, accessible enrichment framework analogous to GSEA but applied to kinase-substrate sets from PhosphoSitePlus.</li>
+<li><strong>Strengths:</strong> Easy to use; intuitive output; widely adopted; available as R package and web app.</li>
+<li><strong>Limitations:</strong> Relies heavily on PhosphoSitePlus coverage (biased toward well-studied kinases); treats all substrates equally regardless of motif confidence.</li>
+</ul>
+<h3 id="kea3">KEA3<a class="headerlink" href="#kea3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1093/nar/gkab359">Nucleic Acids Research, 2021</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/MaayanLab/KEA3web">github.com/MaayanLab/KEA3web</a></li>
+<li><strong>Approach:</strong> Kinase enrichment analysis integrating substrate annotations from multiple databases and ranking kinases using a mean-rank aggregation across libraries.</li>
+<li><strong>Key innovation:</strong> Aggregates evidence from diverse kinase-substrate resources to produce consensus rankings more robust than any single source.</li>
+<li><strong>Strengths:</strong> Broad coverage by combining multiple databases; consensus ranking reduces single-source bias; web interface and API.</li>
+<li><strong>Limitations:</strong> Aggregation can obscure which evidence sources drive a result; enrichment-based approaches assume coordinated substrate regulation.</li>
+</ul>
+<h3 id="phosx">PhosX<a class="headerlink" href="#phosx" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1093/bioinformatics/btae697">Bioinformatics, 2024</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/alussana/PhosX">github.com/alussana/PhosX</a></li>
+<li><strong>Approach:</strong> Combines motif scoring with enrichment analysis, using KinaseLibrary-derived PSSMs as the scoring backbone and testing for enrichment of high-scoring substrates among regulated sites.</li>
+<li><strong>Key innovation:</strong> Bridges motif-based and enrichment-based approaches; does not require pre-defined kinase-substrate databases.</li>
+<li><strong>Strengths:</strong> Database-free kinase activity inference; leverages high-quality KinaseLibrary motifs; performs well in benchmarks.</li>
+<li><strong>Limitations:</strong> Limited to Ser/Thr kinases (inheriting the KinaseLibrary scope); relatively new with less community adoption.</li>
+</ul>
+<h3 id="inka">INKA<a class="headerlink" href="#inka" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1074/mcp.TIR118.001219">Molecular &amp; Cellular Proteomics, 2019</a></li>
+<li><strong>Web:</strong> <a href="https://inkascore.org/">inkascore.org</a></li>
+<li><strong>Approach:</strong> Integrative Inferred Kinase Activity scoring combining kinase-centric (activation loop phosphorylation) and substrate-centric (downstream target regulation) evidence.</li>
+<li><strong>Key innovation:</strong> Combines direct kinase phosphorylation evidence with indirect substrate-based inference for a more complete activity picture.</li>
+<li><strong>Strengths:</strong> Dual evidence streams increase confidence; captures kinases with few known substrates via their own phosphorylation.</li>
+<li><strong>Limitations:</strong> Requires detection of kinase activation loop peptides, which is not always achieved.</li>
+</ul>
+<h2 id="network-based-methods">Network-Based Methods<a class="headerlink" href="#network-based-methods" title="Permanent link">&para;</a></h2>
+<h3 id="rokai">RoKAI<a class="headerlink" href="#rokai" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1038/s41467-021-21211-6">Nucleic Acids Research, 2021</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/serhan-yilmaz/RoKAI">github.com/serhan-yilmaz/RoKAI</a></li>
+<li><strong>Approach:</strong> Robust Kinase Activity Inference propagates phosphosite quantifications across a functional network of phosphosites before performing kinase activity scoring. Uses network smoothing to share information between functionally related sites.</li>
+<li><strong>Key innovation:</strong> Network propagation step imputes missing phosphosite values and denoises observed measurements, improving downstream kinase activity estimates.</li>
+<li><strong>Strengths:</strong> Addresses missing values and measurement noise -- critical issues in phosphoproteomics; compatible with any downstream scoring method.</li>
+<li><strong>Limitations:</strong> Results depend on the quality of the phosphosite functional network; adds a layer of complexity.</li>
+</ul>
+<h3 id="decoupler">decoupleR<a class="headerlink" href="#decoupler" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1093/bioadv/vbac016">Bioinformatics Advances, 2022</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/saezlab/decoupleR">github.com/saezlab/decoupleR</a></li>
+<li><strong>Approach:</strong> Framework for inferring biological activities from omics data using multiple statistical methods (ULM, MLM, VIPER, GSEA). Applied to kinase activity inference using kinase-substrate prior knowledge networks.</li>
+<li><strong>Key innovation:</strong> Method-agnostic framework that runs multiple inference algorithms and provides consensus scores; part of the Saez-Rodriguez lab ecosystem.</li>
+<li><strong>Strengths:</strong> Flexible; supports multiple statistical backends; integrates with OmniPath for prior knowledge; available in both R and Python.</li>
+<li><strong>Limitations:</strong> Performance depends on quality of prior knowledge network; consensus approach may average out true signal in some cases.</li>
+</ul>
+<h3 id="kstar">KSTAR<a class="headerlink" href="#kstar" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Paper:</strong> <a href="https://doi.org/10.1038/s41467-022-32550-z">Nature Communications, 2022</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/NaegleLab/KSTAR">github.com/NaegleLab/KSTAR</a></li>
+<li><strong>Approach:</strong> Uses random subsampling of kinase-substrate networks to generate activity predictions robust to database biases. Builds multiple pruned networks and aggregates predictions.</li>
+<li><strong>Key innovation:</strong> Explicitly addresses study bias in kinase-substrate databases by random network pruning, producing predictions less dominated by well-studied kinases.</li>
+<li><strong>Strengths:</strong> Addresses a fundamental bias problem; strong statistical framework; works with binary (regulated/not) input.</li>
+<li><strong>Limitations:</strong> Computationally intensive due to repeated network sampling; binary input discards quantitative fold-change information.</li>
+</ul>
+<h2 id="benchmarkin-findings">BenchmarKIN Findings<a class="headerlink" href="#benchmarkin-findings" title="Permanent link">&para;</a></h2>
+<p>The benchmarKIN study (<a href="https://doi.org/10.1038/s41467-025-59779-y">Bioinformatics, 2024</a>) systematically compared kinase activity inference methods across perturbation datasets. Key findings: motif-based methods (KinaseLibrary, PhosX) and enrichment methods (KSEAapp) performed comparably on well-covered kinases; no single method dominated across all scenarios; combining motif and enrichment approaches improved robustness; all methods struggled with understudied kinases lacking sufficient substrate annotations.</p>
+<h2 id="when-to-use-kinase-substrate-inference-methods">When to Use Kinase-Substrate Inference Methods<a class="headerlink" href="#when-to-use-kinase-substrate-inference-methods" title="Permanent link">&para;</a></h2>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>Identifying activated or inhibited kinases from phosphoproteomics data</li>
+<li>Prioritizing kinase inhibitors for therapeutic targeting</li>
+<li>Comparing kinase activity across cancer types or treatment conditions</li>
+<li>Generating mechanistic hypotheses from phosphosite-level measurements</li>
+</ul>
+<p><strong>Not ideal for:</strong></p>
+<ul>
+<li>Predicting kinase activity for poorly characterized kinases with few known substrates</li>
+<li>Replacing direct kinase activity assays for clinical decision-making</li>
+<li>Inferring full signaling pathway topology (see pathway reconstruction methods)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://hypothes.is/embed.js"></script>
+      
+    
+  </body>
+</html>
