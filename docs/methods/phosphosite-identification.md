@@ -6,7 +6,7 @@
 
 ### MaxQuant
 - **Paper:** [Nature Biotechnology, 2008](https://doi.org/10.1038/nbt.1511)
-- **Code:** [github.com/cox-labs/mqpar](https://www.maxquant.org/)
+- **Web:** [maxquant.org](https://www.maxquant.org/)
 - **Approach:** Andromeda search engine with probabilistic phosphosite localization via the PTM score. Processes DDA data with label-free or SILAC quantification.
 - **Key innovation:** Integrated phosphosite localization scoring within a complete proteomics pipeline; match-between-runs reduces missing values.
 - **Strengths:** Gold standard for DDA phosphoproteomics; large user community; extensive documentation; well-validated localization probabilities.
@@ -37,7 +37,7 @@
 - **Limitations:** Commercial (not open-source); reproducibility concerns when exact algorithms are proprietary.
 
 ### AlphaPept
-- **Paper:** [Nature Communications, 2022](https://doi.org/10.1038/s41467-024-46485-4)
+- **Paper:** [Nature Communications, 2024](https://doi.org/10.1038/s41467-024-46485-4)
 - **Code:** [github.com/MannLabs/alphapept](https://github.com/MannLabs/alphapept)
 - **Approach:** Python-based, open-source proteomics pipeline from the Mann lab. GPU-accelerated processing with modular architecture.
 - **Key innovation:** Fully open-source reimagining of the MaxQuant philosophy; Python-native enables integration with ML workflows.
@@ -49,8 +49,8 @@
 Computational predictors complement MS-based identification by predicting phosphosites from protein sequence alone:
 
 - **DeepPhos** ([Bioinformatics, 2019](https://doi.org/10.1093/bioinformatics/bty1051)) -- deep learning on sequence context windows; captures hierarchical features.
-- **MusiteDeep** ([Bioinformatics, 2020](https://doi.org/10.1093/bioinformatics/btz060)) -- attention-based deep learning for general PTM prediction; transfer learning across modification types.
-- **NetPhos 3.1** ([Nucleic Acids Research, 2004](https://doi.org/10.1093/nar/gkh458)) -- classic neural network predictor; remains a useful baseline despite its age.
+- **MusiteDeep** ([Bioinformatics, 2020](https://doi.org/10.1093/bioinformatics/btx496)) -- attention-based deep learning for general PTM prediction; transfer learning across modification types.
+- **NetPhos 3.1** ([Nucleic Acids Research, 2004](https://doi.org/10.1002/pmic.200300771)) -- classic neural network predictor; remains a useful baseline despite its age.
 
 These tools help prioritize candidate sites for experimental validation and fill gaps where MS coverage is incomplete.
 

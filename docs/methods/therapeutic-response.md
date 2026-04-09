@@ -5,7 +5,7 @@
 ## Key Methods
 
 ### KinasePA
-- **Paper:** [Bioinformatics, 2015](https://doi.org/10.1093/bioinformatics/btv524)
+- **Paper:** [Bioinformatics, 2015](https://doi.org/10.1002/pmic.201600068)
 - **Code:** [bioconductor.org/packages/KinasePA](https://bioconductor.org/packages/KinasePA/)
 - **Approach:** Kinase Perturbation Analysis. Infers kinase activity changes between conditions using substrate set enrichment on phosphoproteomic data, specifically designed for drug perturbation experiments.
 - **Key innovation:** Tailored for before/after treatment comparisons; directly outputs which kinases are inhibited or activated by a drug.
@@ -14,7 +14,7 @@
 
 ### DrugKiNET
 - **Paper:** [Briefings in Bioinformatics, 2024](https://doi.org/10.1093/bib/bbae058)
-- **Code:** [github.com/zhaoweiyu-github/DrugKiNET](https://github.com/zhaoweiyu-github/DrugKiNET)
+- **Web:** [drugkinet.ca](https://drugkinet.ca/)
 - **Approach:** Network-based framework linking drugs to kinases to phosphosites to phenotypes. Integrates drug-target binding data, kinase-substrate relationships, and pathway annotations to predict drug effects on the phosphoproteome.
 - **Key innovation:** End-to-end modeling from drug to phosphosite: predicts which phosphosites a given kinase inhibitor will affect and which phenotypic consequences follow.
 - **Strengths:** Bridges pharmacology and phosphoproteomics; useful for drug repurposing; connects drug mechanisms to observable phospho-signatures.
@@ -37,7 +37,7 @@
 - **Significance:** Among the first prospective demonstrations that phosphoproteomic profiling can directly guide clinical treatment decisions in oncology.
 
 ### Petralia et al. 2024 -- Pharmacoproteomics
-- **Paper:** [Cell, 2024](https://doi.org/10.1016/j.cell.2024.05.013)
+- **Paper:** [Cell, 2024](https://doi.org/10.1016/j.cell.2024.01.027)
 - **Approach:** Systematic integration of drug response data with proteomic and phosphoproteomic profiles across cancer cell lines. Built predictive models linking basal phosphoproteomic states to drug sensitivity.
 - **Key findings:** Basal kinase activity profiles predict drug sensitivity better than genomic features alone for many kinase inhibitors. Phosphoproteomic features capture pathway activation states that explain variable drug responses among genomically similar tumors. Multi-omic models integrating phosphoproteomics outperform single-omic predictors.
 - **Significance:** Establishes phosphoproteomics as a predictive layer for precision oncology drug response modeling at scale.

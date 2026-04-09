@@ -6,7 +6,7 @@
 
 ### KinaseLibrary
 - **Paper:** [Nature, 2023](https://doi.org/10.1038/s41586-022-05575-3)
-- **Code:** [github.com/jlc-y/kinase-library](https://github.com/jlc-y/kinase-library)
+- **Code:** [github.com/TheKinaseLibrary/kinase-library](https://github.com/TheKinaseLibrary/kinase-library)
 - **Approach:** Position-specific scoring matrices (PSSMs) derived from combinatorial peptide library profiling of 303 serine/threonine kinases. Scores substrates by sequence motif match.
 - **Key innovation:** Experimentally determined specificity profiles for the majority of the human Ser/Thr kinome, replacing curated databases with systematic biochemical measurement.
 - **Strengths:** Largest single-source kinase specificity resource; high-quality biochemical data; directly interpretable scores.
@@ -21,7 +21,7 @@
 - **Limitations:** Training data bias toward well-studied kinases; sequence-only features.
 
 ### iGPS
-- **Paper:** [Nucleic Acids Research, 2015](https://doi.org/10.1093/nar/gku1104)
+- **Paper:** [Nucleic Acids Research, 2015](https://doi.org/10.1074/mcp.M111.012625)
 - **Code:** [igps.biocuckoo.org](http://igps.biocuckoo.org/)
 - **Approach:** Integrates GPS motif predictions with protein-protein interaction networks to filter kinase-substrate pairs by physical interaction evidence.
 - **Key innovation:** Combining sequence specificity with network context to reduce false positives from motif-only approaches.
@@ -55,7 +55,7 @@
 - **Limitations:** Aggregation can obscure which evidence sources drive a result; enrichment-based approaches assume coordinated substrate regulation.
 
 ### PhosX
-- **Paper:** [Bioinformatics, 2024](https://doi.org/10.1093/bioinformatics/btae559)
+- **Paper:** [Bioinformatics, 2024](https://doi.org/10.1093/bioinformatics/btae697)
 - **Code:** [github.com/alussana/PhosX](https://github.com/alussana/PhosX)
 - **Approach:** Combines motif scoring with enrichment analysis, using KinaseLibrary-derived PSSMs as the scoring backbone and testing for enrichment of high-scoring substrates among regulated sites.
 - **Key innovation:** Bridges motif-based and enrichment-based approaches; does not require pre-defined kinase-substrate databases.
@@ -64,7 +64,7 @@
 
 ### INKA
 - **Paper:** [Molecular & Cellular Proteomics, 2019](https://doi.org/10.1074/mcp.TIR118.001219)
-- **Code:** [github.com/PenningtonA/inka](https://github.com/PenningtonA/inka)
+- **Web:** [inkascore.org](https://inkascore.org/)
 - **Approach:** Integrative Inferred Kinase Activity scoring combining kinase-centric (activation loop phosphorylation) and substrate-centric (downstream target regulation) evidence.
 - **Key innovation:** Combines direct kinase phosphorylation evidence with indirect substrate-based inference for a more complete activity picture.
 - **Strengths:** Dual evidence streams increase confidence; captures kinases with few known substrates via their own phosphorylation.
@@ -73,7 +73,7 @@
 ## Network-Based Methods
 
 ### RoKAI
-- **Paper:** [Nucleic Acids Research, 2021](https://doi.org/10.1093/nar/gkab132)
+- **Paper:** [Nucleic Acids Research, 2021](https://doi.org/10.1038/s41467-021-21211-6)
 - **Code:** [github.com/serhan-yilmaz/RoKAI](https://github.com/serhan-yilmaz/RoKAI)
 - **Approach:** Robust Kinase Activity Inference propagates phosphosite quantifications across a functional network of phosphosites before performing kinase activity scoring. Uses network smoothing to share information between functionally related sites.
 - **Key innovation:** Network propagation step imputes missing phosphosite values and denoises observed measurements, improving downstream kinase activity estimates.
@@ -98,7 +98,7 @@
 
 ## BenchmarKIN Findings
 
-The benchmarKIN study ([Bioinformatics, 2024](https://doi.org/10.1093/bioinformatics/btae200)) systematically compared kinase activity inference methods across perturbation datasets. Key findings: motif-based methods (KinaseLibrary, PhosX) and enrichment methods (KSEAapp) performed comparably on well-covered kinases; no single method dominated across all scenarios; combining motif and enrichment approaches improved robustness; all methods struggled with understudied kinases lacking sufficient substrate annotations.
+The benchmarKIN study ([Bioinformatics, 2024](https://doi.org/10.1038/s41467-025-59779-y)) systematically compared kinase activity inference methods across perturbation datasets. Key findings: motif-based methods (KinaseLibrary, PhosX) and enrichment methods (KSEAapp) performed comparably on well-covered kinases; no single method dominated across all scenarios; combining motif and enrichment approaches improved robustness; all methods struggled with understudied kinases lacking sufficient substrate annotations.
 
 ## When to Use Kinase-Substrate Inference Methods
 

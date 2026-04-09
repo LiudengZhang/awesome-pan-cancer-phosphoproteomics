@@ -14,7 +14,7 @@
 
 ### MIMP
 - **Paper:** [Nature Methods, 2015](https://doi.org/10.1038/nmeth.3396)
-- **Code:** [github.com/remiturk/MIMP](https://github.com/remiturk/MIMP)
+- **Code:** [github.com/MoHelmy/mimp](https://github.com/MoHelmy/mimp)
 - **Approach:** Mutation Impact on Phosphorylation. Predicts whether somatic mutations near phosphosites create or destroy kinase recognition motifs, linking cancer mutations to altered phospho-signaling.
 - **Key innovation:** Directly connects the cancer genomics layer (somatic mutations) to the phosphoproteomics layer (kinase-substrate rewiring) by modeling motif disruption.
 - **Strengths:** Mechanistically interpretable; identifies gain-of-phosphorylation and loss-of-phosphorylation events; relevant for precision oncology.
@@ -22,15 +22,15 @@
 
 ### DeepMVP
 - **Paper:** [Bioinformatics, 2024](https://doi.org/10.1093/bioinformatics/btae413)
-- **Code:** [github.com/buehlmannjan/deepmvp](https://github.com/buehlmannjan/deepmvp)
+- **Code:** [github.com/bzhanglab/DeepMVP](https://github.com/bzhanglab/DeepMVP)
 - **Approach:** Deep learning model predicting the functional impact of mutations on phosphosites using protein language model embeddings and structural features from AlphaFold2-predicted structures.
 - **Key innovation:** Leverages protein language models (ESM-2) and AlphaFold2 structures to capture sequence and structural context beyond linear motifs; goes deeper than motif disruption alone.
 - **Strengths:** Captures structural context that linear motif methods miss; benefits from recent advances in protein structure prediction; strong benchmark performance.
 - **Limitations:** Computationally heavier than motif-based methods; AlphaFold2 structure quality varies for disordered regions where many phosphosites reside; deep learning model interpretability is limited.
 
 ### FuncPhos
-- **Paper:** [Cell Reports, 2023](https://doi.org/10.1016/j.celrep.2023.112068)
-- **Code:** [github.com/evocellnet/FuncPhos](https://github.com/evocellnet/FuncPhos)
+- **Paper:** [Cell Reports, 2023](https://doi.org/10.1016/j.celrep.2023.113048)
+- **Code:** [github.com/evocellnet/funscoR](https://github.com/evocellnet/funscoR)
 - **Approach:** Curated database and scoring framework classifying phosphosites by functional evidence type: enzymatic activity regulation, protein interactions, localization, stability, and other regulatory mechanisms.
 - **Key innovation:** Structured functional annotation taxonomy for phosphosites; distinguishes between different mechanisms of phospho-regulation rather than treating function as binary.
 - **Strengths:** Rich functional categorization; manually curated high-confidence annotations; useful for interpreting why a site matters, not just whether it matters.

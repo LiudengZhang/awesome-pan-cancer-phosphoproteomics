@@ -2,7 +2,7 @@
 
 **Verdict:** The most comprehensive benchmark of kinase activity inference methods -- the key takeaway is humbling: no single method dominates, and the field lacks a reliable ground truth.
 
-**Citation:** Tsafou K, Vetter JS, Gjerga E, et al. "Comprehensive benchmark of kinase activity inference methods." *Briefings in Bioinformatics* 25(1):bbad466 (2024). [DOI: 10.1093/bib/bbad466](https://doi.org/10.1093/bib/bbad466)
+**Citation:** Tsafou K, Vetter JS, Gjerga E, et al. "Comprehensive benchmark of kinase activity inference methods." *Briefings in Bioinformatics* 25(1):bbad466 (2024). [DOI: 10.1038/s41467-025-59779-y](https://doi.org/10.1038/s41467-025-59779-y)
 
 ## Problem Setup
 

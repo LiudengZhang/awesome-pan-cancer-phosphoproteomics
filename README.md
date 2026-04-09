@@ -37,8 +37,8 @@ Tools for detecting and quantifying phosphorylation sites from mass spectrometry
 - [FragPipe](https://github.com/Nesvilab/FragPipe) - MSFragger-based pipeline with PTMProphet for phosphosite localization; significantly faster than MaxQuant with comparable sensitivity (Nature Methods, 2017).
 - [DIA-NN](https://github.com/vdemichev/DiaNN) - Neural network-based DIA analysis with library-free search capability; enables deep phosphoproteome coverage without spectral libraries (Nature Methods, 2020).
 - [Spectronaut](https://biognosys.com/software/spectronaut/) - Commercial DIA analysis platform with directDIA mode for phosphoproteomics; strong phosphosite localization in DIA data (Molecular and Cellular Proteomics, 2015).
-- [AlphaPept](https://github.com/MannLabs/alphapept) - Python-based open-source pipeline from the Mann lab; modular design allows custom phospho workflows (Nature Communications, 2022).
-- [DeepPhos](https://github.com/cmaterUB/DeepPhos) - Deep learning predictor of general phosphorylation sites from protein sequence; supplements MS-based identification (Bioinformatics, 2019).
+- [AlphaPept](https://github.com/MannLabs/alphapept) - Python-based open-source pipeline from the Mann lab; modular design allows custom phospho workflows (Nature Communications, 2024).
+- [DeepPhos](https://github.com/USTC-HIlab/DeepPhos) - Deep learning predictor of general phosphorylation sites from protein sequence; supplements MS-based identification (Bioinformatics, 2019).
 - [MusiteDeep](https://github.com/duolinwang/MusiteDeep) - Deep learning framework for predicting phosphorylation and other PTM sites from sequence; transfer learning across modification types (Nucleic Acids Research, 2020).
 - [NetPhos 3.1](https://services.healthtech.dtu.dk/services/NetPhos-3.1/) - Sequence-based neural network predictor for Ser/Thr/Tyr phosphorylation; one of the earliest and most cited predictors (Proteomics, 2004).
 
@@ -55,8 +55,8 @@ Methods for predicting which kinase phosphorylates which site — the central bo
 - [iGPS](https://igps.biocuckoo.org/) - Integrates GPS motif predictions with PPI network context to improve kinase-substrate prediction accuracy (Molecular Cell, 2020).
 - [NetworKIN](http://networkin.info/) - Combines linear motif scoring with network context (STRING interactions) for kinase-substrate prediction; pioneered the motif+network paradigm (Science Signaling, 2007).
 - [decoupleR](https://github.com/saezlab/decoupleR) - Unified framework for inferring kinase and TF activities from omics data; wraps multiple methods (ULM, VIPER, GSVA) with consistent API (Bioinformatics, 2022).
-- [INKA](https://github.com/sysbiolab/INKA) - Integrative inferred kinase activity scoring combining kinase-centric and substrate-centric evidence (Molecular Systems Biology, 2019).
-- [benchmarKIN](https://github.com/Eirinits/benchmarKIN) - Benchmark framework comparing 11 kinase activity inference methods; reveals that no single method dominates across all scenarios (Briefings in Bioinformatics, 2024).
+- [INKA](https://inkascore.org/) - Integrative inferred kinase activity scoring combining kinase-centric and substrate-centric evidence (Molecular Systems Biology, 2019).
+- [benchmarKIN](https://github.com/saezlab/benchmarKIN) - Benchmark framework comparing 11 kinase activity inference methods; reveals that no single method dominates across all scenarios (Briefings in Bioinformatics, 2024).
 - [PTMsigDB](https://github.com/broadinstitute/ssGSEA2.0) - Curated phosphosite signature database organized by kinase, pathway, and perturbation; enables set-based enrichment analysis (Molecular and Cellular Proteomics, 2019).
 
 ## Pathway Reconstruction
@@ -65,38 +65,38 @@ Tools for connecting phosphorylation events into signaling cascades and causal n
 
 - [PHONEMeS](https://github.com/saezlab/PHONEMeS) - Integer linear programming approach to reconstruct signaling pathways from phosphoproteomics and prior knowledge networks; identifies the most parsimonious pathway explanations (PLOS Computational Biology, 2015).
 - [CARNIVAL](https://github.com/saezlab/CARNIVAL) - Causal network optimization from perturbation data; uses ILP to find signaling topologies consistent with observed phosphosite changes (npj Systems Biology and Applications, 2019).
-- [COSMOS](https://github.com/saezlab/COSMOS) - Integrates phosphoproteomics, transcriptomics, and metabolomics into unified causal signaling models; the most ambitious multi-omics integration in this space (Molecular Systems Biology, 2021).
+- [COSMOS](https://github.com/saezlab/cosmosR) - Integrates phosphoproteomics, transcriptomics, and metabolomics into unified causal signaling models; the most ambitious multi-omics integration in this space (Molecular Systems Biology, 2021).
 - [CausalPath](https://github.com/PathwayAndDataAnalysis/causalpath) - Discovers causal signaling relationships from proteomic/phosphoproteomic data using pathway databases; outputs directed networks (PLOS Computational Biology, 2018).
 - [PhosR](https://github.com/PYangLab/PhosR) - R package for comprehensive phosphoproteomics analysis including kinase-substrate scoring, pathway analysis, and temporal dynamics (Nucleic Acids Research, 2021).
-- [OmniPath](https://github.com/saezlab/OmnipathR) - Meta-resource integrating 100+ databases of signaling, regulatory, and kinase-substrate interactions; the prior knowledge backbone for pathway tools (Molecular Systems Biology, 2016).
+- [OmniPath](https://github.com/saezlab/OmnipathR) - Meta-resource integrating 100+ databases of signaling, regulatory, and kinase-substrate interactions; the prior knowledge backbone for pathway tools (Nature Methods, 2016).
 
 ## Functional Scoring and Annotation
 
 Methods for determining whether a phosphosite matters — the function prediction problem.
 
 - [funscoR](https://github.com/evocellnet/funscoR) - Random forest classifier predicting functional relevance of phosphosites from evolutionary, structural, and regulatory features; assigns probability scores to each site (Molecular Systems Biology, 2021).
-- [MIMP](https://github.com/omarwagih/mimp) - Predicts impact of mutations on phosphorylation by comparing kinase motif scores of wildtype and mutant sequences; connects genomics to phosphoproteomics (Nature Methods, 2015).
-- [DeepMVP](https://github.com/balazsgyure/DeepMVP) - Deep learning model predicting pathogenicity of missense variants at phosphorylation sites; integrates sequence, structure, and functional data (Bioinformatics, 2023).
+- [MIMP](https://github.com/omarwagih/rmimp) - Predicts impact of mutations on phosphorylation by comparing kinase motif scores of wildtype and mutant sequences; connects genomics to phosphoproteomics (Nature Methods, 2015).
+- [DeepMVP](https://github.com/bzhanglab/DeepMVP) - Deep learning model predicting pathogenicity of missense variants at phosphorylation sites; integrates sequence, structure, and functional data (Bioinformatics, 2023).
 - [FuncPhos](https://funcphos.mbc.nctu.edu.tw/) - Database and predictor of functional phosphosites using structural and sequence features; classifies sites by regulatory mechanism (Nucleic Acids Research, 2020).
 
 ## Pan-Cancer Integration Studies
 
 Large-scale phosphoproteomics studies across cancer types — where the data comes from.
 
-- [CPTAC pan-cancer phosphoproteome atlas](https://doi.org/10.1016/j.cell.2023.03.017) - 110,274 phosphosites across 10 cancer types; defines shared and cancer-type-specific signaling programs (Geffen et al., Cell, 2023).
+- [CPTAC pan-cancer phosphoproteome atlas](https://doi.org/10.1016/j.cell.2023.07.013) - 110,274 phosphosites across 10 cancer types; defines shared and cancer-type-specific signaling programs (Geffen et al., Cell, 2023).
 - [CPTAC proteogenomic data ecosystem](https://doi.org/10.1016/j.ccell.2023.06.009) - Standardized processing of 1,524 tumors across 14 cancer types with matched proteomics, phosphoproteomics, and genomics (Vasaikar et al., Cancer Cell, 2023).
 - [Pan-cancer kinase activity landscape](https://doi.org/10.1016/j.cell.2023.07.014) - Kinase activity inference across CPTAC cancers revealing convergent and divergent kinase programs (Li et al., Cell, 2023).
-- [Breast cancer phosphoproteomics (CPTAC)](https://doi.org/10.1016/j.cell.2020.01.026) - Foundational CPTAC phosphoproteomics study revealing PAM50 subtype-specific kinase activities (Krug et al., Cell, 2020).
+- [Breast cancer phosphoproteomics (CPTAC)](https://doi.org/10.1016/j.cell.2020.10.036) - Foundational CPTAC phosphoproteomics study revealing PAM50 subtype-specific kinase activities (Krug et al., Cell, 2020).
 - [Pan-cancer phospho-signaling and drug response](https://doi.org/10.1158/2159-8290.CD-23-1038) - Links CPTAC phosphoproteomic profiles to drug sensitivity predictions across cancer types (Cao et al., Cancer Discovery, 2024).
-- [Multi-omic integration for therapeutic vulnerabilities](https://doi.org/10.1016/j.cell.2024.01.017) - Integrates phosphoproteomics with genomics and transcriptomics to identify druggable nodes in treatment-resistant tumors (Petralia et al., Cell, 2024).
+- [Multi-omic integration for therapeutic vulnerabilities](https://doi.org/10.1016/j.cell.2024.01.027) - Integrates phosphoproteomics with genomics and transcriptomics to identify druggable nodes in treatment-resistant tumors (Petralia et al., Cell, 2024).
 
 ## Therapeutic Response and Drug Sensitivity
 
 Connecting phosphoproteomics to treatment decisions.
 
 - [Phosphoproteomics-guided kinase inhibitor selection](https://doi.org/10.1158/2159-8290.CD-23-1038) - Uses patient-derived phosphoproteomics to predict sensitivity to targeted kinase inhibitors (Cancer Discovery, 2024).
-- [KinasePA](https://github.com/saezlab/KinasePA) - Predicts kinase inhibitor sensitivity from phosphoproteomic profiles; maps phosphosite changes to drug targets (Bioinformatics, 2019).
-- [DrugKiNET](https://github.com/drugtargetinteraction/DrugKiNET) - Kinase-drug interaction predictor integrating binding affinity and phosphoproteomic data (Briefings in Bioinformatics, 2023).
+- KinasePA - Predicts kinase inhibitor sensitivity from phosphoproteomic profiles; maps phosphosite changes to drug targets (Bioinformatics, 2019).
+- [DrugKiNET](https://drugkinet.ca/) - Kinase-drug interaction predictor integrating binding affinity and phosphoproteomic data (Briefings in Bioinformatics, 2023).
 - [KSTAR](https://github.com/NaegleLab/KSTAR) - Kinase-substrate activity relationship tool that maps differential phosphorylation to kinase activity changes for therapeutic target nomination (Molecular Systems Biology, 2022).
 - [Phosphosite-based patient stratification](https://doi.org/10.1038/s41586-024-07586-6) - Shows phosphoproteomic subtypes predict clinical outcomes independently of genomic subtypes (Nature, 2024).
 - [CancerPhospho](https://cancerphospho.org/) - Database linking cancer phosphosite alterations to drug responses and clinical outcomes across tumor types.

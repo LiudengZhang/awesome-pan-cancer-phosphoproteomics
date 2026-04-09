@@ -30,7 +30,7 @@
 
 ### COSMOS
 - **Paper:** [Molecular Systems Biology, 2021](https://doi.org/10.15252/msb.20209730)
-- **Code:** [github.com/saezlab/COSMOS](https://github.com/saezlab/COSMOS)
+- **Code:** [github.com/saezlab/cosmosR](https://github.com/saezlab/cosmosR)
 - **Approach:** Causal Oriented Search of Multi-Omic Space. Extends CARNIVAL to integrate signaling, transcriptional regulation, and metabolism into unified network models spanning from receptor activation through metabolic output.
 - **Key innovation:** Multi-omic integration across signaling layers; connects phosphoproteomics to metabolomics through a coherent causal framework.
 - **Strengths:** Most comprehensive pathway reconstruction tool; truly multi-omic; mechanistically connects kinase activity to metabolic consequences.
@@ -45,7 +45,7 @@
 - **Limitations:** Correlation-based inference is weaker than perturbation-based; limited to relationships present in Pathway Commons.
 
 ### PhosR
-- **Paper:** [Cell Reports, 2021](https://doi.org/10.1016/j.celrep.2021.108884)
+- **Paper:** [Cell Reports, 2021](https://doi.org/10.1016/j.celrep.2021.108771)
 - **Code:** [github.com/PYangLab/PhosR](https://github.com/PYangLab/PhosR)
 - **Approach:** R package providing an integrated pipeline for phosphoproteomics including imputation, normalization, kinase activity scoring, and signaling pathway analysis using kinase-substrate and PPI networks.
 - **Key innovation:** End-to-end phosphoproteomics analysis pipeline combining data processing with pathway-level interpretation in a single framework.

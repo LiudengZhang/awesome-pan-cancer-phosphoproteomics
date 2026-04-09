@@ -5,7 +5,7 @@
 ## Key Studies
 
 ### Geffen et al. 2023 -- Pan-Cancer Phospho-Signaling Atlas
-- **Paper:** [Cell, 2023](https://doi.org/10.1016/j.cell.2023.05.039)
+- **Paper:** [Cell, 2023](https://doi.org/10.1016/j.cell.2023.07.013)
 - **Data:** CPTAC pan-cancer cohort (11 cancer types, ~1,100 tumors)
 - **Approach:** Systematic kinase activity inference across cancer types using phosphoproteomic profiling. Identified recurrent kinase activity patterns and phosphorylation-based tumor subtypes through unsupervised clustering of inferred kinase activities.
 - **Key findings:** Convergent kinase programs operate across histologically distinct cancers. CDK-RB and MAPK signaling axes define pan-cancer phospho-subtypes that cut across tissue of origin. Phospho-subtypes capture therapeutic vulnerabilities not apparent from genomic or transcriptomic classification.
@@ -19,7 +19,7 @@
 - **Significance:** Demonstrates that proteogenomic integration with phosphoproteomics is necessary for complete functional interpretation of cancer genomes.
 
 ### Li et al. 2023 -- Kinase Activity Landscape
-- **Paper:** [Cell, 2023](https://doi.org/10.1016/j.cell.2023.04.043)
+- **Paper:** [Cell, 2023](https://doi.org/10.1016/j.cell.2023.07.014)
 - **Data:** Large-scale kinase activity profiling across cancer types
 - **Approach:** Inferred kinase activities from phosphoproteomic data and mapped the kinase activity landscape across tumors, identifying kinase co-activation modules and their associations with clinical features.
 - **Key findings:** Kinase activities cluster into co-regulated modules reflecting shared upstream regulation or pathway membership. Cancer-type-specific kinase activation patterns distinguish tumor lineages, while a subset of kinase modules are recurrently active across cancers. Kinase activity scores correlate with drug sensitivity in cell line panels.
